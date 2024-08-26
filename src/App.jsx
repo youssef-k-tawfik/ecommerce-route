@@ -16,6 +16,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import CartContextProvider from "./context/CartContext";
 import { Toaster } from "react-hot-toast";
+import Wishlist from "./components/Wishlist/Wishlist";
+import WishlistContextProvider from "./context/WishlistContext";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import VefiryResetPwCode from "./components/VefiryResetPWCode/VefiryResetPWCode";
+import CreateNewPw from "./components/CreateNewPW/CreateNewPW";
 
 const routes = createBrowserRouter([
   {
@@ -31,10 +36,26 @@ const routes = createBrowserRouter([
         ),
       },
       {
+        path: "allorders",
+        element: (
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: "products",
         element: (
           <ProtectedRoute>
             <Products />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "wishlist",
+        element: (
+          <ProtectedRoute>
+            <Wishlist />
           </ProtectedRoute>
         ),
       },
@@ -71,6 +92,9 @@ const routes = createBrowserRouter([
         ),
       },
       { path: "login", element: <Login /> },
+      { path: "forgot-password", element: <ForgotPassword /> },
+      { path: "verifyCode", element: <VefiryResetPwCode /> },
+      { path: "createNewPassword", element: <CreateNewPw /> },
       { path: "register", element: <Register /> },
       { path: "*", element: <NotFound /> },
     ],
@@ -91,8 +115,10 @@ function App() {
       <QueryClientProvider client={myClient}>
         <UserContextProvider>
           <CartContextProvider>
-            <RouterProvider router={routes} />
-            <Toaster position="top-right" />
+            <WishlistContextProvider>
+              <RouterProvider router={routes} />
+              <Toaster position="top-right" />
+            </WishlistContextProvider>
           </CartContextProvider>
         </UserContextProvider>
         <ReactQueryDevtools />

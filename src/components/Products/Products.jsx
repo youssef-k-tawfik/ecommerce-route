@@ -7,8 +7,11 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "../Loading/Loading";
 import ButtonAddToCart from "../ButtonAddToCart/ButtonAddToCart";
 import ButtonAddToWishList from "../ButtonAddToWishList/ButtonAddToWishList";
+import { useEffect, useState } from "react";
 
 export default function Products() {
+  const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   const {
     data: products,
     error,
@@ -21,14 +24,39 @@ export default function Products() {
     staleTime: 10 * 1000,
   });
 
+  useEffect(() => {
+    setDisplayedProducts(products);
+  }, [products]);
+
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const filteredProducts = displayedProducts?.filter((product) => {
+    return (
+      product.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchInput.toLowerCase())
+    );
+  });
+
   if (isLoading) return <Loading />;
 
   if (isError) return <p>{JSON.stringify(error)}</p>;
 
   return (
     <>
+      <div className="text-center">
+        <input
+          type="text"
+          placeholder="search"
+          id="searchInput"
+          className="w-[300px] border-2 p-1"
+          value={searchInput}
+          onChange={handleSearchInputChange}
+        />
+      </div>
       <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 py-4">
-        {products.map((product) => (
+        {filteredProducts?.map((product) => (
           <div
             key={product?.id}
             className="group hover:shadow-lg dark:hover:shadow-green-400 dark:hover:shadow  p-2 rounded-xl overflow-hidden"
@@ -56,15 +84,15 @@ export default function Products() {
                 </div>
               </div>
             </Link>
-            
+
             <div className="flex gap-2">
               <ButtonAddToCart
-              productID={product?.id}
-              style={
-                "w-full mt-2 translate-y-full group-hover:translate-y-0 transition-all duration-500 opacity-0 group-hover:opacity-100"
-              }
-            />
-            <ButtonAddToWishList/>
+                productID={product?.id}
+                style={
+                  "w-full mt-2 translate-y-full group-hover:translate-y-0 transition-all duration-500 opacity-0 group-hover:opacity-100"
+                }
+              />
+              <ButtonAddToWishList productID={product?.id} />
             </div>
           </div>
         ))}

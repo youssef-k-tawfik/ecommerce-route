@@ -23,6 +23,7 @@ export default function CategorySlider() {
   if (isError) return <p>{error}</p>;
 
   const settings = {
+    arrows:true,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 4,
@@ -55,7 +56,7 @@ export default function CategorySlider() {
   return (
     <>
       <p>{error}</p>
-      <div className="slider-container px-4">
+      <div className="slider-container px-4  mb-4">
         <Slider {...settings}>
           {categories.map((category) => (
             <div key={category?._id} className="text-center p-2">

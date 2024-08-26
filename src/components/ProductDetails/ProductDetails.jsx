@@ -67,7 +67,7 @@ export default function ProductDetails() {
           </div>
           <div className="flex gap-2">
             <ButtonAddToCart productID={product?.id} style="grow" />
-            <ButtonAddToWishList />
+            <ButtonAddToWishList productID={product?.id} />
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function MainSlider() {
   };
   return (
     <>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 my-2">
         <div className="col-span-3 row-span-2">
           <Slider {...settings}>
             <img

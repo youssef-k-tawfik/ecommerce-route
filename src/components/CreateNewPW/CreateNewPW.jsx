@@ -1,25 +1,24 @@
-// import Style from './Login.module.css';
+// import Style from './CreateNewPw.module.css';
 
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import * as Yup from "yup";
-import { FaSpinner } from "react-icons/fa";
 import axios from "axios";
 import { useFormik } from "formik";
-import { UserContext } from "../../context/UserContext";
+import { useState } from "react";
+import { FaSpinner } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
-export default function Login() {
+export default function CreateNewPw() {
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
-  const { setToken } = useContext(UserContext);
   const navigate = useNavigate();
+
   const inputs = [
     {
       name: "email",
       type: "email",
     },
     {
-      name: "password",
+      name: "newPassword",
       type: "password",
     },
   ];
@@ -28,7 +27,7 @@ export default function Login() {
     email: Yup.string()
       .required("Email field is required!")
       .email("Invalid email!"),
-    password: Yup.string()
+    newPassword: Yup.string()
       .required("password field is required!")
       .matches(
         /^[A-Z].{5,9}$/,
@@ -38,7 +37,7 @@ export default function Login() {
 
   const initialValues = {
     email: "",
-    password: "",
+    newPassword: "",
   };
 
   function onSubmit(values) {
@@ -46,12 +45,8 @@ export default function Login() {
     setIsLoading(true);
     setLoginError("");
     axios
-      .post("https://ecommerce.routemisr.com/api/v1/auth/signin", values)
-      .then(({ data }) => {
-        // console.log(data);
-        setToken(data.token);
-        navigate("/");
-      })
+      .put("https://ecommerce.routemisr.com/api/v1/auth/resetPassword", values)
+      .then(() => navigate("/login"))
       .catch((error) => setLoginError(error.response.data.message))
       .finally(() => setIsLoading(false));
   }
@@ -64,7 +59,7 @@ export default function Login() {
 
   return (
     <>
-      <h2 className="text-center">Login</h2>
+      <h2 className="text-center">Create new PW</h2>
       <form className="max-w-md mx-auto pt-20" onSubmit={formik.handleSubmit}>
         {inputs.map((input) => (
           <div className="relative z-0 w-full mb-5 group" key={input.name}>
@@ -98,10 +93,6 @@ export default function Login() {
         </button>
         <div>{loginError}</div>
       </form>
-      <button className="mx-auto mt-5 border block focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-      onClick={() => navigate("/forgot-password")}>
-        Forgot Password ?
-      </button>
     </>
   );
 }

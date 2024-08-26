@@ -88,6 +88,7 @@ export default function Register() {
 
   return (
     <>
+    <h2 className="text-center">Register</h2>
       <form className="max-w-md mx-auto py-20" onSubmit={formik.handleSubmit}>
         {inputs.map((input) => (
           <div className="relative z-0 w-full mb-5 group" key={input.name}>

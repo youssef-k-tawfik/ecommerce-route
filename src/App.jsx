@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, createHashRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
@@ -22,7 +22,7 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import VefiryResetPwCode from "./components/VefiryResetPWCode/VefiryResetPWCode";
 import CreateNewPw from "./components/CreateNewPW/CreateNewPW";
 
-const routes = createBrowserRouter([
+const routes = createHashRouter([
   {
     path: "",
     element: <Layout />,

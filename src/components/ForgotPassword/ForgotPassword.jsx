@@ -59,12 +59,12 @@ export default function ForgotPassword() {
         )}
         <button
           type="submit"
-          className="btn mt-4 bg-green-700 text-white block disabled:cursor-not-allowed"
+          className="btn mt-4 bg-green-500 w-full text-white block disabled:cursor-not-allowed"
           disabled={
             loading || !formik.isValid || Object.keys(formik.errors).length > 0
           }
         >
-          {loading ? <FaSpinner className="animate-spin" /> : "Send code"}
+          {loading ? <FaSpinner className="animate-spin mx-auto" /> : "Send code"}
         </button>
       </form>
     </div>

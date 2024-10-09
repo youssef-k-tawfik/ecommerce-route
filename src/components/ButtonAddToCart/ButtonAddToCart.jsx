@@ -16,12 +16,20 @@ export default function ButtonAddToCart({ style = "", productID }) {
         return "Loading";
       },
       success: (data) => {
-        console.log(data);
         setLoading(false);
+        console.log(data);
+        if (data === "You are not logged in. Please login to get access") {
+          throw new Error("You are not logged in. Please login to get access");
+        }
         return "Added!";
       },
-      error: () => {
+      error: (error) => {
         setLoading(false);
+        if (
+          error.message === "You are not logged in. Please login to get access"
+        ) {
+          return error.message;
+        }
         return "Something went wrong!";
       },
     });

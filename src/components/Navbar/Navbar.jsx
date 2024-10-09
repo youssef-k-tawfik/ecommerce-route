@@ -18,14 +18,14 @@ export default function Navbar() {
   return (
     <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to="" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link to="/" className="flex items-center md:space-x-3 rtl:space-x-reverse">
           <img src={cart} className="h-8" alt="Flowbite Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             FreshCart
           </span>
         </Link>
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <ul className="flex gap-6 font-medium me-2 items-center">
+        <div className="flex md:order-2 spaasdce-x-3 md:space-x-0 rtl:space-x-reverse">
+          <ul className="flex gap-1 md:gap-6 font-medium me-2 items-center">
             {token ? (
               <>
                 <li
@@ -40,7 +40,7 @@ export default function Navbar() {
                 <li>
                   <button
                     type="button"
-                    className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                    className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
                     onClick={signOut}
                   >
                     Sign out
@@ -53,7 +53,7 @@ export default function Navbar() {
                   <Link to="login">
                     <button
                       type="button"
-                      className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                      className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
                     >
                       Login
                     </button>
@@ -63,7 +63,7 @@ export default function Navbar() {
                   <Link to="register">
                     <button
                       type="button"
-                      className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                      className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
                     >
                       Register
                     </button>
@@ -76,7 +76,7 @@ export default function Navbar() {
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2  dark:text-gray-400 dark:hover:bg-gray-700 "
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2  dark:text-gray-400 dark:hover:bg-gray-500 "
             aria-controls="navbar-sticky"
             aria-expanded="false"
           >
@@ -99,15 +99,15 @@ export default function Navbar() {
           </button>
         </div>
         <div className="items-center justify-between  w-full flex lg:w-auto order-2 lg:order-1">
-          {token && (
+          {token || true && (
             <ul
-              className="flex flex-col w-full p-4 lg:p-0 mt-4 font-medium text-xl border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700"
+              className="flex flex-col w-full p-4 lg:p-0 mt-4 font-medium text-xl border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-500"
               id="navbar-sticky"
             >
               <li>
                 <NavLink
                   to=""
-                  className="block py-2 px-3 text-gray-900 rounded lg:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:text-white lg:dark:hover:text-green-500"
+                  className="block py-2 px-3 text-gray-900 rounded lg:bg-transparent   lg:p-0 lg:dark:text-white lg:dark:hover:text-green-500"
                   aria-current="page"
                 >
                   Home
@@ -116,7 +116,7 @@ export default function Navbar() {
               <li>
                 <NavLink
                   to="cart"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent   lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-500"
                 >
                   Cart
                 </NavLink>
@@ -124,7 +124,7 @@ export default function Navbar() {
               <li>
                 <NavLink
                   to="wishlist"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent   lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-500"
                 >
                   Wishlist
                 </NavLink>
@@ -132,7 +132,7 @@ export default function Navbar() {
               <li>
                 <NavLink
                   to="products"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent   lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-500"
                 >
                   Products
                 </NavLink>
@@ -140,7 +140,7 @@ export default function Navbar() {
               {/* <li>
                 <NavLink
                   to="categories"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent   lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-500"
                 >
                   Categories
                 </NavLink>
@@ -148,7 +148,7 @@ export default function Navbar() {
               <li>
                 <NavLink
                   to="brands"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent   lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-500"
                 >
                   Brands
                 </NavLink>

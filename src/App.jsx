@@ -23,8 +23,8 @@ import { Toaster } from "react-hot-toast";
 import Wishlist from "./components/Wishlist/Wishlist";
 import WishlistContextProvider from "./context/WishlistContext";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-import VefiryResetPwCode from "./components/VefiryResetPWCode/VefiryResetPWCode";
 import CreateNewPw from "./components/CreateNewPW/CreateNewPW";
+import VerifyResetPwCode from "./components/VerifyResetPWCode/VerifyResetPWCode";
 
 const routes = createBrowserRouter(
   [
@@ -34,11 +34,7 @@ const routes = createBrowserRouter(
       children: [
         {
           index: true,
-          element: (
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          ),
+          element: <Home />,
         },
         {
           path: "allorders",
@@ -46,11 +42,7 @@ const routes = createBrowserRouter(
         },
         {
           path: "products",
-          element: (
-            <ProtectedRoute>
-              <Products />
-            </ProtectedRoute>
-          ),
+          element: <Products />,
         },
         {
           path: "wishlist",
@@ -62,11 +54,7 @@ const routes = createBrowserRouter(
         },
         {
           path: "productDetails/:id",
-          element: (
-            <ProtectedRoute>
-              <ProductDetails />
-            </ProtectedRoute>
-          ),
+          element: <ProductDetails />,
         },
         {
           path: "categories",
@@ -94,13 +82,13 @@ const routes = createBrowserRouter(
         },
         { path: "login", element: <Login /> },
         { path: "forgot-password", element: <ForgotPassword /> },
-        { path: "verifyCode", element: <VefiryResetPwCode /> },
+        { path: "verifyCode", element: <VerifyResetPwCode /> },
         { path: "createNewPassword", element: <CreateNewPw /> },
         { path: "register", element: <Register /> },
         { path: "*", element: <NotFound /> },
       ],
     },
-  ],
+  ]
   // { basename: "/ecommerce-route" }
 );
 

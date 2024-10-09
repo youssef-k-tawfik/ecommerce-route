@@ -46,16 +46,6 @@ export default function Products() {
 
   return (
     <>
-      {/* <div className="text-center">
-        <input
-          type="text"
-          placeholder="search"
-          id="searchInput"
-          className="w-[300px] border-2 p-1"
-          value={searchInput}
-          onChange={handleSearchInputChange}
-        />
-      </div> */}
       <SearchInput
         onChangeFunction={handleSearchInputChange}
         value={searchInput}
@@ -95,7 +85,7 @@ export default function Products() {
               <ButtonAddToCart
                 productID={product?.id}
                 style={
-                  "w-full mt-2 translate-y-full group-hover:translate-y-0 transition-all duration-500 opacity-0 group-hover:opacity-100"
+                  "w-full mt-2 md:translate-y-full group-hover:translate-y-0 transition-all duration-500 md:opacity-0 group-hover:opacity-100"
                 }
               />
               <ButtonAddToWishList productID={product?.id} />

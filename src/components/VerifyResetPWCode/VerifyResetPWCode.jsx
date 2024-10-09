@@ -6,7 +6,7 @@ import { FaSpinner } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
-export default function VefiryResetPwCode() {
+export default function VerifyResetPwCode() {
   const [loading, setLoading] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -58,12 +58,12 @@ export default function VefiryResetPwCode() {
         )}
         <button
           type="submit"
-          className="btn mt-4 bg-green-700 text-white block disabled:cursor-not-allowed"
+          className="btn mt-4 bg-green-500 text-white w-full disabled:cursor-not-allowed"
           disabled={
             loading || !formik.isValid || Object.keys(formik.errors).length > 0
           }
         >
-          {loading ? <FaSpinner className="animate-spin" /> : "Confirm code"}
+          {loading ? <FaSpinner className="animate-spin mx-auto" /> : "Confirm code"}
         </button>
       </form>
     </div>

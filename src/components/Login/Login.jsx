@@ -63,7 +63,7 @@ export default function Login() {
   });
 
   return (
-    <>
+    <div className="pt-20">
       <h2 className="text-center">Login</h2>
       <form className="max-w-md mx-auto pt-20" onSubmit={formik.handleSubmit}>
         {inputs.map((input) => (
@@ -90,18 +90,24 @@ export default function Login() {
 
         <button
           type="submit"
-          className="text-white mx-auto block bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+          className="w-full text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm  px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
         >
           {isLoading ? <FaSpinner className="text-xl animate-spin" /> : "Login"}
         </button>
         <div>{loginError}</div>
+        <button
+          className=" bg-green-500 hover:bg-green-800 text-white mt-5 border block focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
+          onClick={() => navigate("/register")}
+        >
+          Register
+        </button>
+        <button
+          className=" hover:bg-green-200 mt-5 border block focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-500 dark:focus:ring-green-800"
+          onClick={() => navigate("/forgot-password")}
+        >
+          Forgot Password ?
+        </button>
       </form>
-      <button
-        className="mx-auto mt-5 border block focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-        onClick={() => navigate("/forgot-password")}
-      >
-        Forgot Password ?
-      </button>
-    </>
+    </div>
   );
 }

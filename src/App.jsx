@@ -1,4 +1,4 @@
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
@@ -37,11 +37,7 @@ const routes = createHashRouter([
       },
       {
         path: "allorders",
-        element: (
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
-        ),
+        element: <Navigate to={"home"} />,
       },
       {
         path: "products",

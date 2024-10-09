@@ -114,15 +114,15 @@ export default function Cart() {
       <div className="text-2xl text-center">Cart</div>
 
       <div className="flex justify-between items-center mb-2">
-        <p>
-          Total Amount:
+        <p className="text-xl font-semibold">
+          Total Amount:{" "} 
           <span className="text-green-400">
             {cartDetails?.totalCartPrice || 0} EGP
           </span>
         </p>
         <div className="flex gap-2">
           <button
-            className="btn bg-green-700 hover:bg-green-600 text-white"
+            className="btn bg-green-500 hover:bg-green-600 text-white"
             onClick={handleCheckoutClick}
           >
             Checkout

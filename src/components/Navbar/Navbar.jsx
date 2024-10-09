@@ -107,7 +107,7 @@ export default function Navbar() {
               <li>
                 <NavLink
                   to=""
-                  className="block py-2 px-3 text-gray-900 bg-green-700 rounded lg:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:text-white lg:dark:hover:text-green-500"
+                  className="block py-2 px-3 text-gray-900 rounded lg:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:text-white lg:dark:hover:text-green-500"
                   aria-current="page"
                 >
                   Home

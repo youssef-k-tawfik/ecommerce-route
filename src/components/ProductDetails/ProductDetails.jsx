@@ -27,10 +27,11 @@ export default function ProductDetails() {
 
   if (isError) {
     console.log(error);
-    
+
     return (
       <p>
-        Product id: {id}. <span className="text-red-600 font-semibold">Not found!</span>
+        Product id: {id}.{" "}
+        <span className="text-red-600 font-semibold">Not found!</span>
       </p>
     );
   }
@@ -47,10 +48,10 @@ export default function ProductDetails() {
 
   return (
     <>
-      <h2 className="text-center">ProductDetails</h2>
-      <p>{error}</p>
+      {/* <h2 className="text-center mb-4">ProductDetails</h2> */}
+
       <div className="grid grid-cols-3 gap-4">
-        <div className="">
+        <div className="col-span-3 mb-2 md:mb-0 md:col-span-1">
           <Slider {...settings}>
             {product.images.map((image, i) => (
               <img
@@ -62,7 +63,7 @@ export default function ProductDetails() {
             ))}
           </Slider>
         </div>
-        <div className="self-center col-span-2 flex flex-col gap-4">
+        <div className="self-center col-span-3 md:col-span-2 flex flex-col gap-4">
           <h4 className="text-green-400">{product?.category?.name}</h4>
           <h2>{product?.title}</h2>
           <p>{product?.description}</p>

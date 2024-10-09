@@ -57,7 +57,7 @@ export default function Navbar() {
             {token ? (
               <>
                 <li
-                  className="relative cursor-pointer me-2"
+                  className="relative cursor-pointer me-4"
                   onClick={() => navigate("/cart")}
                 >
                   <FaShoppingCart className="text-2xl text-[#323232]" />

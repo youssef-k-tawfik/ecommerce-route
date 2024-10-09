@@ -64,7 +64,7 @@ export default function CategorySlider() {
                 <img
                   src={category?.image}
                   alt=""
-                  className="w-full h-36 object-cover object-top"
+                  className="w-full h-36 object-cover object-center"
                 />
                 <p>{category?.name}</p>
               </div>

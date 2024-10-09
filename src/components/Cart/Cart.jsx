@@ -113,9 +113,9 @@ export default function Cart() {
     <>
       <div className="text-2xl text-center">Cart</div>
 
-      <div className="flex justify-between items-center mb-2">
+      <div className=" flex flex-col md:flex-row gap-4 mb-4 justify-between items-center mb-2">
         <p className="text-xl font-semibold">
-          Total Amount:{" "} 
+          Total Amount:{" "}
           <span className="text-green-400">
             {cartDetails?.totalCartPrice || 0} EGP
           </span>

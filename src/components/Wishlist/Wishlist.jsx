@@ -44,9 +44,9 @@ export default function Wishlist() {
       {products?.map((product) => (
         <div
           key={product.id}
-          className="flex justify-between items-center border-b-[1px] border-gray-300 py-16"
+          className=" flex flex-col md:flex-row justify-between items-center border-b-[1px] border-gray-300 py-16"
         >
-          <div className="productDetails flex items-center gap-4">
+          <div className="productDetails flex flex-col md:flex-row items-center gap-8">
             <div className="max-w-48">
               <img src={product.imageCover} className="w-full block" />
             </div>
@@ -54,7 +54,7 @@ export default function Wishlist() {
               <h3>{product.title}</h3>
               <p className="my-2">{product.price} EGP</p>
               <button
-                className="flex items-center gap-1 text-red-600"
+                className="flex items-center gap-1 text-red-600 mt-4 "
                 onClick={() => handleRemoveFromWishlist(product.id)}
               >
                 <FaTrash /> Remove
@@ -63,7 +63,7 @@ export default function Wishlist() {
           </div>
           <div
             onClick={() => handleRemoveFromWishlist(product.id)}
-            className="min-w-[115px]"
+            className="min-w-[115px] mt-6"
           >
             <ButtonAddToCart productID={product.id} />
           </div>

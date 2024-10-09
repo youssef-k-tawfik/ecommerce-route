@@ -1,4 +1,8 @@
-import { createHashRouter, Navigate, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
@@ -22,80 +26,83 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import VefiryResetPwCode from "./components/VefiryResetPWCode/VefiryResetPWCode";
 import CreateNewPw from "./components/CreateNewPW/CreateNewPW";
 
-const routes = createHashRouter([
-  {
-    path: "",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: (
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "allorders",
-        element: <Navigate to={"home"} />,
-      },
-      {
-        path: "products",
-        element: (
-          <ProtectedRoute>
-            <Products />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "wishlist",
-        element: (
-          <ProtectedRoute>
-            <Wishlist />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "productDetails/:id",
-        element: (
-          <ProtectedRoute>
-            <ProductDetails />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "categories",
-        element: (
-          <ProtectedRoute>
-            <Categories />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "brands",
-        element: (
-          <ProtectedRoute>
-            <Brands />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "cart",
-        element: (
-          <ProtectedRoute>
-            <Cart />
-          </ProtectedRoute>
-        ),
-      },
-      { path: "login", element: <Login /> },
-      { path: "forgot-password", element: <ForgotPassword /> },
-      { path: "verifyCode", element: <VefiryResetPwCode /> },
-      { path: "createNewPassword", element: <CreateNewPw /> },
-      { path: "register", element: <Register /> },
-      { path: "*", element: <NotFound /> },
-    ],
-  },
-]);
+const routes = createBrowserRouter(
+  [
+    {
+      path: "",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: (
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "allorders",
+          element: <Navigate to="/" />,
+        },
+        {
+          path: "products",
+          element: (
+            <ProtectedRoute>
+              <Products />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "wishlist",
+          element: (
+            <ProtectedRoute>
+              <Wishlist />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "productDetails/:id",
+          element: (
+            <ProtectedRoute>
+              <ProductDetails />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "categories",
+          element: (
+            <ProtectedRoute>
+              <Categories />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "brands",
+          element: (
+            <ProtectedRoute>
+              <Brands />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "cart",
+          element: (
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          ),
+        },
+        { path: "login", element: <Login /> },
+        { path: "forgot-password", element: <ForgotPassword /> },
+        { path: "verifyCode", element: <VefiryResetPwCode /> },
+        { path: "createNewPassword", element: <CreateNewPw /> },
+        { path: "register", element: <Register /> },
+        { path: "*", element: <NotFound /> },
+      ],
+    },
+  ],
+  { basename: "/ecommerce-route" }
+);
 
 const myClient = new QueryClient({
   defaultOptions: {

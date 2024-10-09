@@ -8,7 +8,7 @@ export default function Layout() {
     <>
       <Navbar />
 
-      <main className="py-20">
+      <main className="py-20 px-4">
         <div className="container mx-auto px-3">
           <Outlet />
         </div>

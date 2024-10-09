@@ -137,7 +137,7 @@ export default function Navbar() {
                   Products
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="categories"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
@@ -152,7 +152,7 @@ export default function Navbar() {
                 >
                   Brands
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           )}
         </div>

@@ -8,6 +8,7 @@ import Loading from "../Loading/Loading";
 import ButtonAddToCart from "../ButtonAddToCart/ButtonAddToCart";
 import ButtonAddToWishList from "../ButtonAddToWishList/ButtonAddToWishList";
 import { useEffect, useState } from "react";
+import SearchInput from "../SearchInput/SearchInput";
 
 export default function Products() {
   const [displayedProducts, setDisplayedProducts] = useState([]);
@@ -45,7 +46,7 @@ export default function Products() {
 
   return (
     <>
-      <div className="text-center">
+      {/* <div className="text-center">
         <input
           type="text"
           placeholder="search"
@@ -54,7 +55,12 @@ export default function Products() {
           value={searchInput}
           onChange={handleSearchInputChange}
         />
-      </div>
+      </div> */}
+      <SearchInput
+        onChangeFunction={handleSearchInputChange}
+        value={searchInput}
+        setValue={setSearchInput}
+      />
       <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 py-4">
         {filteredProducts?.map((product) => (
           <div
@@ -76,7 +82,7 @@ export default function Products() {
                   {product?.description}
                 </p>
                 <div className="flex justify-between">
-                  <div className="">{product?.price} EGP</div>
+                  <div className="font-semibold">{product?.price} EGP</div>
                   <div className="flex gap-1 items-center">
                     {product?.ratingsAverage}
                     <FaStar className="text-yellow-400" />

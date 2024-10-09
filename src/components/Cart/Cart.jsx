@@ -44,7 +44,7 @@ export default function Cart() {
       .post(
         `${import.meta.env.VITE_BASE_URL}/orders/checkout-session/${
           cartID || localStorage.getItem("cartID")
-        }?url=http://localhost:5173`,
+        }?url=https://youssef-k-tawfik.github.io/ecommerce-route`,
         values,
         { headers }
       )

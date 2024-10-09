@@ -8,6 +8,7 @@ export const WishlistContext = createContext();
 export default function WishlistContextProvider({ children }) {
   const [wishlistIDs, setWishlistIDs] = useState([]);
   const [wishlistProducts, setWishlistProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { token } = useContext(UserContext);
   const headers = { token };
 
@@ -34,6 +35,7 @@ export default function WishlistContextProvider({ children }) {
   }, [wishlistProductsResponse]);
 
   function addProductToWishlist(productId) {
+    setIsLoading(true);
     return axios
       .post(
         `${import.meta.env.VITE_BASE_URL}/wishlist`,
@@ -46,10 +48,14 @@ export default function WishlistContextProvider({ children }) {
         queryClient.invalidateQueries({ queryKey: ["wishlist"] });
         return data.data.data;
       })
-      .catch((error) => error.response.data.message);
+      .catch((error) => error.response.data.message)
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   function removeProductFromWishlist(productId) {
+    setIsLoading(true);
     return axios
       .delete(`${import.meta.env.VITE_BASE_URL}/wishlist/${productId}`, {
         headers,
@@ -60,7 +66,10 @@ export default function WishlistContextProvider({ children }) {
         queryClient.invalidateQueries({ queryKey: ["wishlist"] });
         return data.data.data;
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   return (
@@ -71,6 +80,7 @@ export default function WishlistContextProvider({ children }) {
         wishlistProducts,
         removeProductFromWishlist,
         isFetching,
+        isLoading
       }}
     >
       {children}

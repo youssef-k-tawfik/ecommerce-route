@@ -19,7 +19,7 @@ export default function Brands() {
     isError,
     isLoading,
   } = useQuery({
-    queryKey: ["categories"],
+    queryKey: ["brands"],
     queryFn: () => axios.get(`${import.meta.env.VITE_BASE_URL}/brands`),
     select: (data) => data.data.data,
   });

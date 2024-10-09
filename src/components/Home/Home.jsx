@@ -7,6 +7,7 @@ export default function Home() {
     <>
       <MainSlider />
       <CategorySlider />
+      <div className="size-14"></div>
       <Products />
     </>
   );

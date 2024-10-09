@@ -11,6 +11,7 @@ import Slider from "react-slick";
 
 export default function ProductDetails() {
   const { id } = useParams("id");
+
   const {
     data: product,
     error,

@@ -57,6 +57,10 @@ const routes = createBrowserRouter(
           element: <ProductDetails />,
         },
         {
+          path: "products/productDetails/:id",
+          element: <ProductDetails />,
+        },
+        {
           path: "categories",
           element: (
             <ProtectedRoute>

@@ -29,11 +29,13 @@ export default function Wishlist() {
     );
 
   if (!products?.length)
+    
     return (
-      <>
-        <h2 className="text-center">Wishlist</h2>
-        <div className="text-center">Your wishlist is empty</div>
-      </>
+      <div className="text-center text-3xl my-20 font-sans">
+        <h2>Wishlist</h2>
+        <br />
+        <p>Your Wishlist is empty!</p>
+      </div>
     );
 
   return (

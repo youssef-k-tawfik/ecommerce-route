@@ -25,7 +25,15 @@ export default function ProductDetails() {
 
   if (isLoading) return <Loading />;
 
-  if (isError) return <p>{JSON.stringify(error)}</p>;
+  if (isError) {
+    console.log(error);
+    
+    return (
+      <p>
+        Product id: {id}. <span className="text-red-600 font-semibold">Not found!</span>
+      </p>
+    );
+  }
 
   const settings = {
     arrows: false,

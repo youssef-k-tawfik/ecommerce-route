@@ -101,7 +101,7 @@ const routes = createBrowserRouter(
       ],
     },
   ],
-  { basename: "/ecommerce-route" }
+  // { basename: "/ecommerce-route" }
 );
 
 const myClient = new QueryClient({

@@ -101,7 +101,7 @@ export default function Navbar() {
         <div className="items-center justify-between  w-full flex lg:w-auto order-2 lg:order-1">
           {token && (
             <ul
-              className="flex flex-col w-full p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700"
+              className="flex flex-col w-full p-4 lg:p-0 mt-4 font-medium text-xl border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700"
               id="navbar-sticky"
             >
               <li>
@@ -126,7 +126,7 @@ export default function Navbar() {
                   to="wishlist"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-green-700 lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  wish list
+                  Wishlist
                 </NavLink>
               </li>
               <li>

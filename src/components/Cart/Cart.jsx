@@ -44,7 +44,7 @@ export default function Cart() {
       .post(
         `${import.meta.env.VITE_BASE_URL}/orders/checkout-session/${
           cartID || localStorage.getItem("cartID")
-        }?url=https://youssef-k-tawfik.github.io/ecommerce-route`,
+        }?url=https://client.yousseftawfik.com`,
         values,
         { headers }
       )
@@ -74,10 +74,11 @@ export default function Cart() {
 
   if (!cartDetails?.products?.length) {
     return (
-      <>
-        <div className="text-2xl text-center">Cart</div>
-        <div className="text-center">Your cart is empty</div>
-      </>
+      <div className="text-center text-3xl my-20 font-sans">
+        <h2>Cart</h2>
+        <br />
+        <p>Your cart is empty!</p>
+      </div>
     );
   }
 

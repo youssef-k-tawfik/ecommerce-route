@@ -58,7 +58,7 @@ export default function CreateNewPw() {
   });
 
   return (
-    <>
+    <div className="max-w-md mx-auto pt-20">
       <h2 className="text-center">Create new PW</h2>
       <form className="max-w-md mx-auto pt-20" onSubmit={formik.handleSubmit}>
         {inputs.map((input) => (
@@ -77,7 +77,9 @@ export default function CreateNewPw() {
             >
               {input.name}
             </label>
-            {formik.touched[input.name] && formik.errors[input.name]}
+            {formik.touched[input.name] && (
+              <p className="text-red-500">{formik.errors[input.name]}</p>
+            )}
           </div>
         ))}
 
@@ -93,6 +95,6 @@ export default function CreateNewPw() {
         </button>
         <div>{loginError}</div>
       </form>
-    </>
+    </div>
   );
 }

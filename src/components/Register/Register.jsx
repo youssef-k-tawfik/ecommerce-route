@@ -88,7 +88,7 @@ export default function Register() {
 
   return (
     <>
-    <h2 className="text-center">Register</h2>
+      <h2 className="text-center">Register</h2>
       <form className="max-w-md mx-auto py-20" onSubmit={formik.handleSubmit}>
         {inputs.map((input) => (
           <div className="relative z-0 w-full mb-5 group" key={input.name}>
@@ -106,7 +106,9 @@ export default function Register() {
             >
               {input.name}
             </label>
-            {formik.touched[input.name] && formik.errors[input.name]}
+            {formik.touched[input.name] && (
+              <p className="text-red-500">{formik.errors[input.name]}</p>
+            )}
           </div>
         ))}
 
@@ -117,7 +119,7 @@ export default function Register() {
           {isLoading ? (
             <FaSpinner className="text-xl animate-spin" />
           ) : (
-            "Submit"
+            "Register"
           )}
         </button>
         <div>{registerError}</div>

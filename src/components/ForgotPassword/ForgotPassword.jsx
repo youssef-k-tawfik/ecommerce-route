@@ -20,7 +20,8 @@ export default function ForgotPassword() {
   };
 
   const navigate = useNavigate();
-  function onSubmit(values ) {
+
+  function onSubmit(values) {
     // console.log(values);
     setLoading(true);
     axios
@@ -42,7 +43,7 @@ export default function ForgotPassword() {
   });
 
   return (
-    <>
+    <div className="max-w-md mx-auto pt-20">
       <h2>please enter your Email:</h2>
       <form onSubmit={formik.handleSubmit}>
         <input
@@ -66,6 +67,6 @@ export default function ForgotPassword() {
           {loading ? <FaSpinner className="animate-spin" /> : "Send code"}
         </button>
       </form>
-    </>
+    </div>
   );
 }

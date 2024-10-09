@@ -82,7 +82,9 @@ export default function Login() {
             >
               {input.name}
             </label>
-            {formik.touched[input.name] && formik.errors[input.name]}
+            {formik.touched[input.name] && (
+              <p className="text-red-500">{formik.errors[input.name]}</p>
+            )}
           </div>
         ))}
 
@@ -90,16 +92,14 @@ export default function Login() {
           type="submit"
           className="text-white mx-auto block bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
         >
-          {isLoading ? (
-            <FaSpinner className="text-xl animate-spin" />
-          ) : (
-            "Submit"
-          )}
+          {isLoading ? <FaSpinner className="text-xl animate-spin" /> : "Login"}
         </button>
         <div>{loginError}</div>
       </form>
-      <button className="mx-auto mt-5 border block focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-      onClick={() => navigate("/forgot-password")}>
+      <button
+        className="mx-auto mt-5 border block focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        onClick={() => navigate("/forgot-password")}
+      >
         Forgot Password ?
       </button>
     </>

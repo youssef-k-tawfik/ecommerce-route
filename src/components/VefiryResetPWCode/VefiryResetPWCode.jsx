@@ -42,7 +42,7 @@ export default function VefiryResetPwCode() {
   });
 
   return (
-    <>
+    <div className="max-w-md mx-auto pt-20">
       <h2>Verify Code sent to your email</h2>
       <form onSubmit={formik.handleSubmit}>
         <input
@@ -66,6 +66,6 @@ export default function VefiryResetPwCode() {
           {loading ? <FaSpinner className="animate-spin" /> : "Confirm code"}
         </button>
       </form>
-    </>
+    </div>
   );
 }

@@ -35,6 +35,12 @@ export default function Navbar() {
     setIsNavBarVisible(!isNavBarVisible);
   }
 
+  function handleNavLinkClick() {
+    if (window.innerWidth < 1024) {
+      setIsNavBarVisible(false);
+    }
+  }
+
   function signOut() {
     setToken(null);
     navigate("/login");
@@ -138,7 +144,7 @@ export default function Navbar() {
                 to=""
                 className="block py-2 px-3 text-gray-900 rounded lg:bg-transparent   lg:p-0 lg:dark:text-white lg:dark:hover:text-green-500"
                 aria-current="page"
-                onClick={() => setIsNavBarVisible(false)}
+                onClick={handleNavLinkClick}
               >
                 Home
               </NavLink>
@@ -147,7 +153,7 @@ export default function Navbar() {
               <NavLink
                 to="cart"
                 className="block py-2 px-3 text-gray-900 rounded  lg:hover:bg-transparent   lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-500"
-                onClick={() => setIsNavBarVisible(false)}
+                onClick={handleNavLinkClick}
               >
                 Cart
               </NavLink>
@@ -156,7 +162,7 @@ export default function Navbar() {
               <NavLink
                 to="wishlist"
                 className="block py-2 px-3 text-gray-900 rounded  lg:hover:bg-transparent   lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-500"
-                onClick={() => setIsNavBarVisible(false)}
+                onClick={handleNavLinkClick}
               >
                 Wishlist
               </NavLink>
@@ -165,7 +171,7 @@ export default function Navbar() {
               <NavLink
                 to="products"
                 className="block py-2 px-3 text-gray-900 rounded  lg:hover:bg-transparent   lg:p-0 lg:dark:hover:text-green-500 dark:text-white dark:hover:bg-gray-500 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-500"
-                onClick={() => setIsNavBarVisible(false)}
+                onClick={handleNavLinkClick}
               >
                 Products
               </NavLink>
